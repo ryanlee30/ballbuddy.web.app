@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'digital-7';
+    src: url('../fonts/digital-7.ttf');
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 5%;
+}
+
+.accord{
+    padding-top: 1%;
+    padding-bottom:1%;
+    width: 65%;
+}
+.accordcards{
+    color: #17a2b8;
+    
+}
+.accordtext{
+    color:black;
+    font-style: italic;
+}
+
+.inputform {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.commands {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.figurepic {
+    max-width: 55%;
+}
+
+.commandsHistory {
+    display: block;
+    padding-top: 5%;
+    height: 300px;
+    overflow: auto;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/* Everything after is related to sound table */
+
+
+.allContent {
+    display: flex;
+}
+
+.soundTable {
+    display: flex;
+    width: 95%;
+    height:700px;
+    padding: 1.5%;
+    justify-content: space-around;
+}
+
+
+.flex-child-input {
+    width: 40%;
+}
+
+.flex-child-table {
+    height: 500px;
+}
+
+.verticalLine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    left: 10%;
+    /* z-index: -1; */
+}
+.timerContainer {
+    display: flex;
+    padding-top: 5%;
+}
+
+.timer {
+    color: rgba(243, 220, 220); /* Fallback for older browsers */
+    font-size: 18pt;
+    font-family: 'digital-7', sans-serif;
+}
+
+.time {
+    color: rgba(243, 220, 220, 0.2); /* Fallback for older browsers */
+    font-size: 12pt;
+    font-family: Arial, sans-serif;
+}
+
+.soundLabelContainer {
+    width: 15%;
+    border-width: 2px;
+    border-color: rgb(228, 255, 220);
+    border-style: solid;
+    /* background: yellow; */
+}
+
+.soundLabelPadding {
+    display: flex;
+    height: 3.5%;
+    justify-content: center;
+    font-size: 12pt;
+    font-family: Arial, sans-serif;
+    color: rgba(243, 220, 220, 0.2);
+    border-bottom: 1px solid rgba(223, 208, 208, 0.3);
+}
+
+.soundLabel {
+    display: flex;
+    height: 5%;
+    align-items: center;
+    justify-content: center;
+    font-size: 12pt;
+    font-family: Arial, sans-serif;
+    border-bottom: 2px solid rgba(223, 208, 208, 0.3);
+}
+
+.linesContainer {
+    width: 100%;
+    position: relative;
+    border-width: 2px;
+    border-color: rgba(161, 233, 223);
+    border-style: solid;
+    /*z-index: -25; */
+}
+
+.soundLineRow {
+    height: 5%;
+    display: flex;
+    border-bottom: 2px solid rgba(223, 208, 208, 0.3);
+}
