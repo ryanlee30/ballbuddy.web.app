@@ -8,7 +8,7 @@ import style from 'bootstrap/dist/css/bootstrap.css'
 
 function App() {
     return (
-        <BrowserRouter basename="/gasbuddy-main">
+        <BrowserRouter basename="/ballbuddy-main">
             <div className="App">
                 <Navigation />
                 <div className="App-header">
@@ -21,5 +21,5 @@ function App() {
         </BrowserRouter>
     )
 }
-ç
+
 export default App

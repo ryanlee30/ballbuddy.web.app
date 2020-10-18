@@ -5,7 +5,7 @@ export class Navigation extends Component {
     render() {
         return (
             <Navbar bg="info" expand="lg">
-                <Navbar.Brand className="text-white" href="/ballbuddy-main/">
+                <Navbar.Brand className="text-white" href="/">
                     BallBuddy
                 </Navbar.Brand>
                 <Navbar.Brand className="text-white" href="/new-court/">
