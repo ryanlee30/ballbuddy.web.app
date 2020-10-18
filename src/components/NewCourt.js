@@ -195,13 +195,13 @@ class NewCourt extends React.Component {
           </label>
           <br></br>
           <label for="location">
-            where's the court?
+            where's the court? (drag the pin)
           </label>
           <br></br>
           <div
             id="google-map"
             ref={this.googleMapRef}
-            style={{ width: '400px', height: '300px' }}
+           
           />
           <button type="submit">Submit</button>
         </form>

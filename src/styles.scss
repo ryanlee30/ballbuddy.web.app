@@ -3,7 +3,8 @@ $font: "Lato", sans-serif;
 header{
     margin-top: 50px;
     h1{
-        font-size: 30px;
+        font-size: 35px;
+        font-weight: bold;
     }
 }
 
@@ -139,6 +140,10 @@ footer:hover{
 form{
     display: flex;
     flex-direction: column;
+    flex: 1;
+    overflow: scroll;
+    height: 65vh;
+    // align-items: center;
 }
 
 .courts{
@@ -168,6 +173,7 @@ form{
         margin-top: 5px;
         font-family: $font;
         font-size: 20px;
+        min-height: 30px;
     }
     input{
         margin-top: 5px;
@@ -220,4 +226,9 @@ form{
         width: 30%;
         margin-top: 20px;
     }
+}
+
+#google-map{
+    min-height: 300px;
+    min-width: 450px;
 }
