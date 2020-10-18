@@ -88,7 +88,6 @@ class NewCourt extends React.Component {
     })
   }
 
-
   addUser = e => {
     e.preventDefault();
     const db = firebase.firestore();

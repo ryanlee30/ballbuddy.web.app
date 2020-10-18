@@ -142,7 +142,6 @@ form{
     flex-direction: column;
     flex: 1;
     overflow: scroll;
-    height: 65vh;
     // align-items: center;
 }
 
@@ -154,8 +153,8 @@ form{
         color: white;
         padding: 15px;
         width: 200px;
-        position: absolute;
-        bottom: 90px;
+        position: relative;
+        top: 10px;
         border-radius: 10px;
         text-align: center;
         display: block;
@@ -169,6 +168,7 @@ form{
 }
 
 .new-court{
+    height: 65vh;
     label{
         margin-top: 5px;
         font-family: $font;
@@ -231,4 +231,70 @@ form{
 #google-map{
     min-height: 300px;
     min-width: 450px;
+}
+
+.modal {
+    outline: none;
+    background: white;
+    font-size: 1.6rem;
+    width: 76rem;
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    z-index: 15;
+    // height: 50%;
+    transform: translateX(50%);
+    padding: 20px;
+}
+
+.wait-list{
+    margin-top: 15px;
+    label{
+        margin-top: 5px;
+        font-family: $font;
+        font-size: 20px;
+        min-height: 30px;
+    }
+    input{
+        margin-top: 5px;
+        border-style: none;
+        border-bottom: 1px solid #FF5800;
+        font-size: 15px;
+    }
+    button{
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #FF5800;
+        color: white;
+        border-style: none;
+        width: 30%;
+        margin-top: 20px;
+    }
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: scroll;
+    height: 65vh;
+    button{
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #FF5800;
+        color: white;
+        border-style: none;
+        width: 30%;
+        margin-top: 20px;
+    }
+    h1{
+        margin-bottom: 10px;
+    }
+    h3{
+        font-weight: 100;
+        font-size: 15px;
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
 }
