@@ -4,6 +4,7 @@ import { BrowserRouter, HashRouter as Router, Route, Switch} from 'react-router-
 import { Navigation } from './components/Navigation'
 import Courts from './components/Courts'
 import { NewCourt } from './components/NewCourt'
+import MapContainer from './components/GoogleMap'
 import style from 'bootstrap/dist/css/bootstrap.css'
 
 function App() {

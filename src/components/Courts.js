@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from "./Firestore";
 import './styles.css'
+import { GoogleMap } from './GoogleMap'
 
 class Courts extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Courts extends Component {
     };
   }
 
-  componentWillMount = async (e) => {
+  componentDidMount = async (e) => {
     console.log("test");
     const db = firebase.firestore()
     const docRef = db.collection('Courts').doc("7zd2HgX6OyIhicFfewlg");
@@ -30,6 +31,7 @@ class Courts extends Component {
     return(
       <div className = "court">
         {dataUI}
+        <GoogleMap />
       </div>
     );
   }
