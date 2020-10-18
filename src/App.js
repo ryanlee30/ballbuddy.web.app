@@ -4,6 +4,7 @@ import { BrowserRouter, Route} from 'react-router-dom'
 import Header from './components/Header'
 import Courts from './components/Courts'
 import { NewCourt } from './components/NewCourt'
+import MapContainer from './components/GoogleMap'
 import Details from './components/Details'
 import Footer from './components/Footer'
 

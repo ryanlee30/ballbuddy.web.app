@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from "./Firestore";
+import { GoogleMap } from './GoogleMap'
 import CourtObject from '../components/CourtObject'
 import '../styles.scss'
 
@@ -32,10 +33,12 @@ class Courts extends Component {
     else
     {
       return (
-        <div className="court-container">
-          {Object.keys(this.state.data).map((key) => {
-            return(<CourtObject data={this.state.data[key]} id={key} key={key}/>);
-          })}
+        <div>
+          <div className="court-container">
+            {Object.keys(this.state.data).map((key) => {
+              return(<CourtObject data={this.state.data[key]} id={key} key={key}/>);
+            })}
+          </div>
         </div>
       );
     }
