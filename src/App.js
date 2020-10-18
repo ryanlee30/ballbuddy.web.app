@@ -1,24 +1,24 @@
 import React from 'react'
 import './App.css'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-// import Commands from './components/Commands'
-// import { Navigation } from './components/Navigation'
-// import DSLPage from './components/DSLPage'
+import { BrowserRouter, HashRouter as Router, Route, Switch} from 'react-router-dom'
+import { Navigation } from './components/Navigation'
+import Courts from './components/Courts'
+import NewCourt from './components/NewCourt'
 import style from 'bootstrap/dist/css/bootstrap.css'
 
 function App() {
     return (
-        <Router basename="/Audio-Mixer">
+        <BrowserRouter basename="/gasbuddy-main">
             <div className="App">
                 <Navigation />
                 <div className="App-header">
                     <Switch>
-                        <Route path="/" component={Commands} exact />
-                        <Route path="/dsl" component={DSLPage} />
+                        <Route path="/" component={Courts} exact />
+                        <Route path="/new-court" component={NewCourt} />
                     </Switch>
                 </div>
             </div>
-        </Router>
+        </BrowserRouter>
     )
 }
 
