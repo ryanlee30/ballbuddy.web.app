@@ -1,4 +1,4 @@
-$font: "Lora", sans-serif;
+$font: "Lato", sans-serif;
 
 header{
     margin-top: 50px;
@@ -140,7 +140,7 @@ form{
         background-color: #FF5800;
         color: white;
         padding: 15px;
-        width: 30%;
+        width: 20%;
         position: absolute;
         bottom: 90px;
         left: 30%;
@@ -152,5 +152,64 @@ form{
     a:hover{
         background-color: #FF9760;
         cursor: pointer;
+    }
+}
+
+.new-court{
+    label{
+        margin-top: 5px;
+        font-family: $font;
+        font-size: 20px;
+    }
+    input{
+        margin-top: 5px;
+        border-style: none;
+        border-bottom: 1px solid #FF5800;
+        font-size: 15px;
+    }
+    input[type=text]{
+        width: 50%;
+    }
+    input[type=number]{
+        width: 10%;
+    }
+    input[type=radio]{
+        margin-right: 15px;
+    }
+    input[type=radio]:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #F4F4F4;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+    input[type=radio]:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #FF5800;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    button{
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #FF5800;
+        color: white;
+        border-style: none;
+        width: 30%;
+        margin-top: 20px;
     }
 }
