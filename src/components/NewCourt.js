@@ -1,8 +1,8 @@
 import React from 'react';
 import firebase from "./Firestore";
-import { OnboardingGoogleMap } from './GoogleMap'
+import {withRouter} from 'react-router-dom';
 
-export class NewCourt extends React.Component {
+class NewCourt extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -109,13 +109,14 @@ export class NewCourt extends React.Component {
       lights: false,
       outdoor: true,
     });
+    this.props.history.push('/');
   };
 
   render() {
     return (
-        <form onSubmit={this.addUser}>
+        <form onSubmit={this.addUser} className="new-court">
           <label for="hoops">
-            Name of Court
+            what's the name of this court?
           </label>
           <input 
             type="text"
@@ -126,7 +127,7 @@ export class NewCourt extends React.Component {
           />
 
           <label for="hoops">
-            Number of Hoops
+            how many hoops at this court?
           </label>
             <input 
               type="number"
@@ -140,7 +141,7 @@ export class NewCourt extends React.Component {
             />
           
           <label for="location">
-            Location
+            where's the court?
           </label>
           <input
             hidden
@@ -151,7 +152,9 @@ export class NewCourt extends React.Component {
             required
           />
           
-          <label for="lights">Lights?</label>
+          <label for="lights">
+            are there lights at this court?
+          </label>
           <label>
             <input
              type="radio" 
@@ -159,7 +162,7 @@ export class NewCourt extends React.Component {
              checked = {this.state.lights === true}
              onChange = {this.lightsTrue}
              required/> 
-             Yes
+             yes
           </label>
           
           <label>
@@ -169,10 +172,13 @@ export class NewCourt extends React.Component {
              required
              onChange = {this.lightsFalse}
              checked = {this.state.lights === false}
-             /> No
+             />
+             no
           </label>
 
-          <label for="outdoor">Outdoor?</label>
+          <label for="outdoor">
+            is this court outdoors?
+          </label>
           <label>
             <input
              type="radio" 
@@ -180,7 +186,7 @@ export class NewCourt extends React.Component {
              checked = {this.state.outdoor === true}
              onChange = {this.outdoorTrue}
              required/> 
-             Yes
+             yes
           </label>
           
           <label>
@@ -189,8 +195,8 @@ export class NewCourt extends React.Component {
              name="outdoor" 
              required
              onChange = {this.outdoorFalse}
-             checked = {this.state.outdoor === false}
-             /> No
+             checked = {this.state.outdoor === false}/>
+            no
           </label>
           <div
             id="google-map"
@@ -201,4 +207,6 @@ export class NewCourt extends React.Component {
         </form>
         );
       }
-   }
+}
+
+export default withRouter(NewCourt)
