@@ -43,14 +43,14 @@ class Details extends Component {
     this.setState({waitlist: wl});
   }
 
-  waitList = e => {
+  waitList = async e => {
     var today = new Date();
     e.preventDefault();
     const db = firebase.firestore();
     db.settings({
       timestampsInSnapshots: true
     });
-    db.collection('courts').doc(this.props.match.params.id).collection("waitlist").add({
+    await db.collection('courts').doc(this.props.match.params.id).collection("waitlist").add({
       name: this.state.name,
       number: this.state.number,
       timeAdded: today.getHours() + ":" + today.getMinutes()
@@ -63,6 +63,7 @@ class Details extends Component {
       outdoor: true,
     });
     this.toggle();
+    window.location.reload();
   };
 
   render() {
