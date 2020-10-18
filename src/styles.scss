@@ -148,14 +148,13 @@ form{
         background-color: #FF5800;
         color: white;
         padding: 15px;
-        width: 20%;
+        width: 200px;
         position: absolute;
         bottom: 90px;
-        left: 30%;
         border-radius: 10px;
         text-align: center;
         display: block;
-        justify-self: center;
+        transform: translateX(50%);
     }
 
     a:hover{
