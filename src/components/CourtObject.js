@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles.scss';
-import image from '../placeholder-image.jpg';
+import outdoor from '../outdoorcourt.jpg';
+import indoor from '../indoorcourt.jpg'
 import {withRouter} from 'react-router-dom';
 import firebase from "./Firestore";
 
@@ -37,7 +38,7 @@ class CourtObject extends Component {
       <div>
         <div className="line"/>
         <div className="court-object" onClick={this.handleClick}>
-          <img src = {image} alt="placeholder"/>
+          <img src = {this.props.data.outdoor ? outdoor : indoor} alt="placeholder"/>
           <div className="court-info">
             <div className="court-details">
               <h3>{this.props.data.outdoor ? "Outdoor" : "Indoor"}</h3>
