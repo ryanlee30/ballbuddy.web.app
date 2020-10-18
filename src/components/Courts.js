@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import firebase from "./Firestore";
-import './styles.css'
 import { GoogleMap } from './GoogleMap'
+import CourtObject from '../components/CourtObject'
+import '../styles.scss'
 
 class Courts extends Component {
   constructor(props) {
@@ -12,28 +13,35 @@ class Courts extends Component {
   }
 
   componentDidMount = async (e) => {
-    console.log("test");
     const db = firebase.firestore()
-    const docRef = db.collection('Courts').doc("7zd2HgX6OyIhicFfewlg");
-    const doc = await docRef.get();
-    console.log(doc.data())
-    if (!doc.exists) {
-      console.log('No such document!');
-      this.setState({data: null});
-    } else {
-      console.log('Document data:', doc.data());
-      this.setState({data: doc.data()});
-    }
+    const colRef = db.collection('courts');
+    const col = await colRef.get();
+    var docData = {}
+    col.forEach(doc => {
+      docData[doc.id] = doc.data()
+    });
+    this.setState({data: docData});
   }
 
   render() {
-    let dataUI = this.state.data == null ? <h1>No Data</h1> : <pre>{JSON.stringify(this.state.data)}</pre>;
-    return(
-      <div className = "court">
-        {dataUI}
-        <GoogleMap />
-      </div>
-    );
+    if(this.state.data == null)
+    {
+      return (
+        <span></span>
+      );
+    }
+    else
+    {
+      return (
+        <div>
+          <div className="court-container">
+            {Object.keys(this.state.data).map((key) => {
+              return(<CourtObject data={this.state.data[key]} id={key} key={key}/>);
+            })}
+          </div>
+        </div>
+      );
+    }
   }
 }
 

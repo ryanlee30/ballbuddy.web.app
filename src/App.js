@@ -1,23 +1,22 @@
 import React from 'react'
 import './App.css'
-import { BrowserRouter, HashRouter as Router, Route, Switch} from 'react-router-dom'
-import { Navigation } from './components/Navigation'
+import { BrowserRouter, Route} from 'react-router-dom'
+import Header from './components/Header'
 import Courts from './components/Courts'
 import { NewCourt } from './components/NewCourt'
 import MapContainer from './components/GoogleMap'
-import style from 'bootstrap/dist/css/bootstrap.css'
+import Details from './components/Details'
+import Footer from './components/Footer'
 
 function App() {
     return (
-        <BrowserRouter basename="/ballbuddy-main">
+        <BrowserRouter basename="/">
             <div className="App">
-                <Navigation />
-                <div className="App-header">
-                    <Switch>
-                        <Route path="/" component={Courts} exact />
-                        <Route path="/new-court" component={NewCourt} />
-                    </Switch>
-                </div>
+                <Header/>
+                <Route path="/" component={Courts} exact />
+                <Route path="/new-court" component={NewCourt} />
+                <Route path="/details/:id" component={Details}/>
+                <Footer/>
             </div>
         </BrowserRouter>
     )
