@@ -19,7 +19,7 @@ class CourtObject extends Component {
     if(col.empty){
       this.setState({busy: "EMPTY"});
     }
-    else if(col.size){
+    else if(col.size <= 5){
       this.setState({busy: "OKAY"});
     }
     else{
