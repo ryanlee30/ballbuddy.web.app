@@ -1,24 +1,14 @@
 import React from 'react';
-import firebase from "firebase";
-
-const config = {
-  apiKey: "AIzaSyAy5wTTEXTXkSbGnWvQNwD_fb-VaZc1qYk",
-  authDomain: "ballbuddy.firebaseapp.com",
-  databaseURL: "https://ballbuddy.firebaseio.com",
-  projectId: "ballbuddy",
-  storageBucket: "ballbuddy.appspot.com",
-  messagingSenderId: "978963257379",
-  appId: "1:978963257379:web:f0f171e6d1440e3927f996"
-};
-
-firebase.initializeApp(config);
+import firebase from "./Firestore";
 
 export class NewCourt extends React.Component {
   constructor() {
     super();
     this.state = {
-     email: '',
-     fullname: '',
+     name: '',
+     hoops: '',
+     location: '',
+     lights: ''
     };
   }
 
@@ -35,12 +25,16 @@ export class NewCourt extends React.Component {
       timestampsInSnapshots: true
     });
     const userRef = db.collection('Courts').add({
-      fullname: this.state.fullname,
-      email: this.state.email
-    });  
+      name: this.state.name,
+      hoops: this.state.hoops,
+      location: this.state.location,
+      lights: this.state.lights
+    }); 
     this.setState({
-      fullname: '',
-      email: ''
+      name: '',
+      hoops: '',
+      location: '',
+      lights: ''
     });
   };
 
@@ -48,17 +42,28 @@ export class NewCourt extends React.Component {
     return (
         <form onSubmit={this.addUser}>
           <input type="text"
-          name="fullname"
-          placeholder="Full name"
+          name="name"
+          placeholder="Court Name"
           onChange={this.updateInput}
-          value={this.state.fullname}
+          value={this.state.name}
           />
-          <input
-            type="email"
-            name="email"
-            placeholder="Full name"
-            onChange={this.updateInput}
-            value={this.state.email}
+          <input type="text"
+          name="hoops"
+          placeholder="Hoops"
+          onChange={this.updateInput}
+          value={this.state.hoops}
+          />
+          <input type="text"
+          name="location"
+          placeholder="Location"
+          onChange={this.updateInput}
+          value={this.state.location}
+          />
+          <input type="text"
+          name="lights"
+          placeholder="Lights"
+          onChange={this.updateInput}
+          value={this.state.lights}
           />
           <button type="submit">Submit</button>
         </form>
