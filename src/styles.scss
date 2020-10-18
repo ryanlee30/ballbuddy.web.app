@@ -12,7 +12,7 @@ header{
     flex-direction: column;
     flex: 1;
     overflow: scroll;
-    height: 70vh;
+    height: 65vh;
     align-items: center;
 }
 
@@ -34,7 +34,8 @@ header{
 }
 
 .court-object:hover{
-    background-color: #F4F4F4
+    background-color: #F4F4F4;
+    cursor: pointer;
 }
 
 .court-details{
@@ -113,8 +114,43 @@ footer{
     align-items: center;
     position: absolute;
     bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
     h3{
         margin-left: 10px;
         color: #707070;
+    }
+}
+
+footer:hover{
+    background-color: #F4F4F4;
+    cursor: pointer;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.courts{
+    width: 100%;      
+    a{
+        text-decoration: none;
+        background-color: #FF5800;
+        color: white;
+        padding: 15px;
+        width: 30%;
+        position: absolute;
+        bottom: 90px;
+        left: 30%;
+        border-radius: 10px;
+        text-align: center;
+        display: block;
+        justify-self: center;
+    }
+    a:hover{
+        background-color: #FF9760;
+        cursor: pointer;
     }
 }
