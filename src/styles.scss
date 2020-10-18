@@ -1,0 +1,72 @@
+$font: "Lora", sans-serif;
+
+header{
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.court-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0
+}
+
+.court-object{
+    // height: 150px;
+    display: flex;
+    flex-direction: row;
+    img{
+        height: 100px;
+        width: 100px;
+        margin-right: 10px;
+    }
+    margin-top: 40px;
+}
+
+.court-details{
+    display:flex;
+    flex-direction: row;
+    margin-top: auto;
+    width: 150px;
+    h3{
+        font-weight: 300;
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+    h3:nth-child(2){
+        margin-left: 10px;
+    }
+}
+
+.court-name
+{
+    h2{
+        margin-top: 5px;
+    }
+}
+
+.court-populated{
+    margin-top: 20px;
+    font-size: 12px;
+    margin-left: 25px;
+    h3:nth-child(1){
+        margin-top: 10px
+    }
+}
+
+.court-info{
+    margin-top: 20px;
+}
+
+mark{
+    background-color: transparent;
+    color: red;
+}
+
+.line{
+    width: 280px;
+    height: 12px;
+    border-bottom: 3px solid #FF5800;
+    position: absolute;
+    margin-left: 80px;
+}

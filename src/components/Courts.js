@@ -1,37 +1,48 @@
 import React, { Component } from 'react';
 import firebase from "./Firestore";
-import './styles.css'
+import CourtObject from '../components/CourtObject'
+import '../styles.scss'
 
 class Courts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: null
+      data: ['test1', 'test2']
     };
   }
 
-  componentWillMount = async (e) => {
-    console.log("test");
+  componentDidMount = async (e) => {
     const db = firebase.firestore()
-    const docRef = db.collection('Courts').doc("7zd2HgX6OyIhicFfewlg");
-    const doc = await docRef.get();
-    console.log(doc.data())
-    if (!doc.exists) {
-      console.log('No such document!');
-      this.setState({data: null});
-    } else {
-      console.log('Document data:', doc.data());
-      this.setState({data: doc.data()});
-    }
+    const colRef = db.collection('courts');
+    const col = await colRef.get();
+    var docData = []
+    col.forEach(doc => {
+      docData.push(doc.data())
+    });
+    console.log(docData);
+    this.setState({data: docData});
   }
 
   render() {
-    let dataUI = this.state.data == null ? <h1>No Data</h1> : <pre>{JSON.stringify(this.state.data)}</pre>;
-    return(
-      <div className = "court">
-        {dataUI}
-      </div>
-    );
+    // var data = this.state.data == null ? <h1>asdf</h1> : this.state.data
+    if(this.state.data == null)
+    {
+      return (
+        <h1>No Data!</h1>
+      );
+    }
+    else
+    {
+      return (
+        <div className="court-container">
+          {Object.values(this.state.data).map((d) => {
+            return(<CourtObject data={d}/>);
+          })}
+        </div>
+      )
+      
+     
+    }
   }
 }
 
