@@ -3,6 +3,7 @@ import firebase from "./Firestore";
 import { GoogleMap } from './GoogleMap'
 import CourtObject from '../components/CourtObject'
 import '../styles.scss'
+import { NavLink } from 'react-router-dom';
 
 class Courts extends Component {
   constructor(props) {
@@ -33,12 +34,13 @@ class Courts extends Component {
     else
     {
       return (
-        <div>
+        <div className="courts">
           <div className="court-container">
             {Object.keys(this.state.data).map((key) => {
               return(<CourtObject data={this.state.data[key]} id={key} key={key}/>);
             })}
           </div>
+          <NavLink to="/new-court">+ &nbsp;&nbsp;  Add Court</NavLink>
         </div>
       );
     }

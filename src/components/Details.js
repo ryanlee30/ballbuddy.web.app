@@ -13,7 +13,7 @@ class Details extends Component {
     };
   }
 
-  componentDidMount = async (e) => {
+  componentWillMount = async (e) => {
     const db = firebase.firestore()
     const docRef = db.collection('courts').doc(this.props.match.params.id);
     const doc = await docRef.get();
@@ -23,18 +23,16 @@ class Details extends Component {
 
   render() {
     const isData = this.state.data;
-    let pos = {
-      lat: 49.300738,
-      lng: -122.760038
-    }
     return(
       <div>
         {isData ? (
+          <div>
           <h1>{this.state.data.name}</h1>
+          <DisplayGoogleMap location={this.state.data.location} />
+          </div>
         ) : (
           <h1>No details found! Did you come to the wrong place?</h1>
         )}
-        <DisplayGoogleMap {...pos} />
       </div>
     );
   }

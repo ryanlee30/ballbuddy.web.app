@@ -22,6 +22,10 @@ export class NewCourt extends React.Component {
     googleScript.addEventListener('load', () => {
       if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pos) => {
+        this.setState({
+          'location': parseFloat(pos.coords.latitude) + "," + parseFloat(pos.coords.longitude)
+        });
+
         const map = new window.google.maps.Map(this.googleMapRef.current, {
           zoom: 15,
           center: {
@@ -60,57 +64,138 @@ export class NewCourt extends React.Component {
     });
   }
 
+  lightsTrue = () => {
+    this.setState({
+      lights: Boolean(1)
+    })
+  }
+
+  lightsFalse = () => {
+    this.setState({
+      lights: Boolean(0)
+    })
+  }
+
+  outdoorTrue = () => {
+    this.setState({
+      outdoor: Boolean(1)
+    })
+  }
+
+  outdoorFalse = () => {
+    this.setState({
+      outdoor: Boolean(0)
+    })
+  }
+
+
   addUser = e => {
     e.preventDefault();
     const db = firebase.firestore();
     db.settings({
       timestampsInSnapshots: true
     });
-    const userRef = db.collection('Courts').add({
+    db.collection('courts').add({
       name: this.state.name,
       hoops: this.state.hoops,
       location: this.state.location,
-      lights: this.state.lights
+      lights: this.state.lights,
+      outdoor: this.state.outdoor
     }); 
     this.setState({
       name: '',
       hoops: '',
       location: '',
-      lights: ''
+      lights: false,
+      outdoor: true,
     });
   };
 
   render() {
     return (
         <form onSubmit={this.addUser}>
-          <input type="text"
-          name="name"
-          placeholder="Court Name"
-          onChange={this.updateInput}
-          value={this.state.name}
+          <label for="hoops">
+            Name of Court
+          </label>
+          <input 
+            type="text"
+            name="name"
+            value={this.state.name}
+            onChange={this.updateInput}
+            required
           />
-          <input type="text"
-          name="hoops"
-          placeholder="Hoops"
-          onChange={this.updateInput}
-          value={this.state.hoops}
+
+          <label for="hoops">
+            Number of Hoops
+          </label>
+            <input 
+              type="number"
+              name="hoops"
+              onChange={this.updateInput}
+              value={this.state.hoops}
+              min= "1"
+              max= "12"
+              step="1"
+              required
+            />
+          
+          <label for="location">
+            Location
+          </label>
+          <input
+            hidden
+            type="text"
+            name="location"
+            onChange={this.updateInput}
+            value={this.state.location}
+            required
           />
-          <input type="text"
-          name="lights"
-          placeholder="Lights"
-          onChange={this.updateInput}
-          value={this.state.lights}
-          />
-          <input hidden type="text"
-          name="location"
-          placeholder="Location"
-          onChange={this.updateInput}
-          value={this.state.location}
-          />
+          
+          <label for="lights">Lights?</label>
+          <label>
+            <input
+             type="radio" 
+             name="lights" 
+             checked = {this.state.lights === true}
+             onChange = {this.lightsTrue}
+             required/> 
+             Yes
+          </label>
+          
+          <label>
+          <input
+             type="radio" 
+             name="lights" 
+             required
+             onChange = {this.lightsFalse}
+             checked = {this.state.lights === false}
+             /> No
+          </label>
+
+          <label for="outdoor">Outdoor?</label>
+          <label>
+            <input
+             type="radio" 
+             name="outdoor" 
+             checked = {this.state.outdoor === true}
+             onChange = {this.outdoorTrue}
+             required/> 
+             Yes
+          </label>
+          
+          <label>
+          <input
+             type="radio" 
+             name="outdoor" 
+             required
+             onChange = {this.outdoorFalse}
+             checked = {this.state.outdoor === false}
+             /> No
+          </label>
           <div
             id="google-map"
             ref={this.googleMapRef}
-            style={{ width: '500px', height: '300px' }}
+            style={{ width: '400px', height: '300px' }}
           />
           <button type="submit">Submit</button>
         </form>

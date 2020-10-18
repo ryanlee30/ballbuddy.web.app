@@ -4,7 +4,6 @@ export class OnboardingGoogleMap extends Component {
   constructor() {
     super();
     this.googleMapRef = React.createRef();
-    this.state = { lat: 0, lng: 0 }
     }
 
   componentDidMount() {
@@ -35,10 +34,7 @@ export class OnboardingGoogleMap extends Component {
           marker,
           'drag',
           function() {
-            this.setState({
-              lat: marker.getPosition().getLat(),
-              lng: marker.getPosition().getLng()
-            });
+            console.log(marker.getPosition().lat());
           }
         );
         
@@ -75,15 +71,15 @@ export class DisplayGoogleMap extends Component {
         const map = new window.google.maps.Map(this.googleMapRef.current, {
           zoom: 15,
           center: {
-            lat: this.props.lat,
-            lng: this.props.lng,
+            lat: parseFloat(this.props.location.split(',')[0]),
+            lng: parseFloat(this.props.location.split(',')[1])
           },
           disableDefaultUI: true,
           mapTypeId: 'hybrid',
         });
   
         var marker = new window.google.maps.Marker({
-          position: { lat: this.props.lat, lng: this.props.lng },
+          position: { lat: parseFloat(this.props.location.split(',')[0]), lng: parseFloat(this.props.location.split(',')[1]) },
           map: map,
         });
       })
@@ -97,7 +93,7 @@ export class DisplayGoogleMap extends Component {
           ref={this.googleMapRef}
           style={{ width: '400px', height: '300px' }}
         />
-        <a id='getDirection' href={'https://www.google.com/maps/search/?api=1&query=' + this.props.lat + ',' + this.props.lng} target="_blank"><h3>Get Directions</h3></a>
+        <a id='getDirection' href={'https://www.google.com/maps/search/?api=1&query=' + parseFloat(this.props.location.split(',')[0]) + ',' + parseFloat(this.props.location.split(',')[1])} target="_blank"><h3>Get Directions</h3></a>
       </div>
 
     )
