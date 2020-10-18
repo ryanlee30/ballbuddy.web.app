@@ -2,8 +2,30 @@ import React, { Component } from 'react';
 import '../styles.scss';
 import image from '../placeholder-image.jpg';
 import {withRouter} from 'react-router-dom';
+import firebase from "./Firestore";
 
 class CourtObject extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      busy: "EMPTY"
+    }
+  }
+  componentWillMount = async (e) => {
+    const db = firebase.firestore()
+    const colRef = db.collection('courts').doc(this.props.id).collection("waitlist");
+    const col = await colRef.get();
+    console.log(col);
+    if(col.empty){
+      this.setState({busy: "EMPTY"});
+    }
+    else if(col.size){
+      this.setState({busy: "OKAY"});
+    }
+    else{
+      this.setState({busy: "BUSY"});
+    }
+  }
 
   handleClick = (e) => {
     console.log(this.props.id)
@@ -29,6 +51,7 @@ class CourtObject extends Component {
           
           <div className="court-populated">
               <h3><mark>Details</mark></h3>
+              <h3>{this.state.busy}</h3>
           </div>
         </div>
       </div>
