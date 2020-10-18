@@ -125,7 +125,7 @@ class NewCourt extends React.Component {
             onChange={this.updateInput}
             required
           />
-
+          <br></br>
           <label for="hoops">
             how many hoops at this court?
           </label>
@@ -139,10 +139,7 @@ class NewCourt extends React.Component {
               step="1"
               required
             />
-          
-          <label for="location">
-            where's the court?
-          </label>
+          <br></br>
           <input
             hidden
             type="text"
@@ -151,7 +148,6 @@ class NewCourt extends React.Component {
             value={this.state.location}
             required
           />
-          
           <label for="lights">
             are there lights at this court?
           </label>
@@ -164,7 +160,6 @@ class NewCourt extends React.Component {
              required/> 
              yes
           </label>
-          
           <label>
           <input
              type="radio" 
@@ -175,7 +170,7 @@ class NewCourt extends React.Component {
              />
              no
           </label>
-
+          <br></br>
           <label for="outdoor">
             is this court outdoors?
           </label>
@@ -198,6 +193,11 @@ class NewCourt extends React.Component {
              checked = {this.state.outdoor === false}/>
             no
           </label>
+          <br></br>
+          <label for="location">
+            where's the court?
+          </label>
+          <br></br>
           <div
             id="google-map"
             ref={this.googleMapRef}
