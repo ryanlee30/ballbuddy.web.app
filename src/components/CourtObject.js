@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import '../styles.scss';
 import image from '../placeholder-image.jpg';
+import {withRouter} from 'react-router-dom';
 
 class CourtObject extends Component {
+
+  handleClick = (e) => {
+    console.log(this.props.id)
+    this.props.history.push('/details/' + this.props.id);
+  }
+
   render() {
     return(
-      <div className="court-object">
+      <div className="court-object" onClick={this.handleClick}>
         <div className = "line"/>
         <img src = {image} alt="placeholder"/>
         <div className="court-info">
@@ -23,10 +30,9 @@ class CourtObject extends Component {
             <h3>500 m</h3>
             <h3><mark>BUSY</mark></h3>
         </div>
-
       </div>
     );
   }
 }
 
-export default CourtObject
+export default withRouter(CourtObject)

@@ -7,7 +7,7 @@ class Courts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: ['test1', 'test2']
+      data: null
     };
   }
 
@@ -15,33 +15,29 @@ class Courts extends Component {
     const db = firebase.firestore()
     const colRef = db.collection('courts');
     const col = await colRef.get();
-    var docData = []
+    var docData = {}
     col.forEach(doc => {
-      docData.push(doc.data())
+      docData[doc.id] = doc.data()
     });
-    console.log(docData);
     this.setState({data: docData});
   }
 
   render() {
-    // var data = this.state.data == null ? <h1>asdf</h1> : this.state.data
     if(this.state.data == null)
     {
       return (
-        <h1>No Data!</h1>
+        <span></span>
       );
     }
     else
     {
       return (
         <div className="court-container">
-          {Object.values(this.state.data).map((d) => {
-            return(<CourtObject data={d}/>);
+          {Object.keys(this.state.data).map((key) => {
+            return(<CourtObject data={this.state.data[key]} id={key} key={key}/>);
           })}
         </div>
-      )
-      
-     
+      );
     }
   }
 }
