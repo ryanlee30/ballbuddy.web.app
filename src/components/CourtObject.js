@@ -28,8 +28,7 @@ class CourtObject extends Component {
           </div>
           
           <div className="court-populated">
-              <h3>500 m</h3>
-              <h3><mark>BUSY</mark></h3>
+              <h3><mark>Details</mark></h3>
           </div>
         </div>
       </div>
