@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter, HashRouter as Router, Route, Switch} from 'react-router-dom'
 import { Navigation } from './components/Navigation'
 import Courts from './components/Courts'
-import NewCourt from './components/NewCourt'
+import { NewCourt } from './components/NewCourt'
 import style from 'bootstrap/dist/css/bootstrap.css'
 
 function App() {
