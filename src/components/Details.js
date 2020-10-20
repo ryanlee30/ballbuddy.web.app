@@ -28,7 +28,7 @@ class Details extends Component {
     });
   };
 
-  componentWillMount = async e => {
+  componentDidMount = async e => {
     const db = firebase.firestore();
     const docRef = db.collection('courts').doc(this.props.match.params.id);
     const doc = await docRef.get();

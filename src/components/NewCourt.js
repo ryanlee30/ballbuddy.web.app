@@ -15,49 +15,43 @@ class NewCourt extends React.Component {
   }
 
   componentDidMount() {
-    const googleScript = document.createElement('script');
-    googleScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAy5wTTEXTXkSbGnWvQNwD_fb-VaZc1qYk&libraries=places`;
-    window.document.body.appendChild(googleScript);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        this.setState({
+          location:
+            parseFloat(pos.coords.latitude) +
+            ',' +
+            parseFloat(pos.coords.longitude),
+        });
 
-    googleScript.addEventListener('load', () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(pos => {
+        const map = new window.google.maps.Map(this.googleMapRef.current, {
+          zoom: 15,
+          center: {
+            lat: pos.coords.latitude,
+            lng: pos.coords.longitude,
+          },
+          disableDefaultUI: true,
+          mapTypeId: 'hybrid',
+        });
+
+        var marker = new window.google.maps.Marker({
+          position: { lat: pos.coords.latitude, lng: pos.coords.longitude },
+          map: map,
+          draggable: true,
+        });
+
+        window.google.maps.event.addListener(marker, 'drag', () => {
           this.setState({
             location:
-              parseFloat(pos.coords.latitude) +
+              parseFloat(marker.getPosition().lat()) +
               ',' +
-              parseFloat(pos.coords.longitude),
-          });
-
-          const map = new window.google.maps.Map(this.googleMapRef.current, {
-            zoom: 15,
-            center: {
-              lat: pos.coords.latitude,
-              lng: pos.coords.longitude,
-            },
-            disableDefaultUI: true,
-            mapTypeId: 'hybrid',
-          });
-
-          var marker = new window.google.maps.Marker({
-            position: { lat: pos.coords.latitude, lng: pos.coords.longitude },
-            map: map,
-            draggable: true,
-          });
-
-          window.google.maps.event.addListener(marker, 'drag', () => {
-            this.setState({
-              location:
-                parseFloat(marker.getPosition().lat()) +
-                ',' +
-                parseFloat(marker.getPosition().lng()),
-            });
+              parseFloat(marker.getPosition().lng()),
           });
         });
-      } else {
-        window.alert('Please enable location services.');
-      }
-    });
+      });
+    } else {
+      window.alert('Please enable location services.');
+    }
   }
 
   updateInput = e => {
@@ -116,7 +110,7 @@ class NewCourt extends React.Component {
   render() {
     return (
       <form onSubmit={this.addUser} className="new-court">
-        <label for="hoops">what's the name of this court?</label>
+        <label htmlFor="hoops">what's the name of this court?</label>
         <input
           type="text"
           name="name"
@@ -125,7 +119,7 @@ class NewCourt extends React.Component {
           required
         />
         <br></br>
-        <label for="hoops">how many hoops at this court?</label>
+        <label htmlFor="hoops">how many hoops at this court?</label>
         <input
           type="number"
           name="hoops"
@@ -145,7 +139,7 @@ class NewCourt extends React.Component {
           value={this.state.location}
           required
         />
-        <label for="lights">are there lights at this court?</label>
+        <label htmlFor="lights">are there lights at this court?</label>
         <label>
           <input
             type="radio"
@@ -167,7 +161,7 @@ class NewCourt extends React.Component {
           no
         </label>
         <br></br>
-        <label for="outdoor">is this court outdoors?</label>
+        <label htmlFor="outdoor">is this court outdoors?</label>
         <label>
           <input
             type="radio"
@@ -190,7 +184,7 @@ class NewCourt extends React.Component {
           no
         </label>
         <br></br>
-        <label for="location">where's the court? (drag the pin)</label>
+        <label htmlFor="location">where's the court? (drag the pin)</label>
         <br></br>
         <div id="google-map" ref={this.googleMapRef} />
         <button type="submit">Submit</button>

@@ -401,15 +401,13 @@
                 t.preventDefault();
                 var a = E.firestore();
                 a.settings({ timestampsInSnapshots: !0 }),
-                  a
-                    .collection('courts')
-                    .add({
-                      name: e.state.name,
-                      hoops: e.state.hoops,
-                      location: e.state.location,
-                      lights: e.state.lights,
-                      outdoor: e.state.outdoor,
-                    }),
+                  a.collection('courts').add({
+                    name: e.state.name,
+                    hoops: e.state.hoops,
+                    location: e.state.location,
+                    lights: e.state.lights,
+                    outdoor: e.state.outdoor,
+                  }),
                   e.setState({
                     name: '',
                     hoops: '',

@@ -12,7 +12,7 @@ class CourtObject extends Component {
       busy: 'EMPTY',
     };
   }
-  componentWillMount = async e => {
+  componentDidMount = async e => {
     const db = firebase.firestore();
     const colRef = db
       .collection('courts')

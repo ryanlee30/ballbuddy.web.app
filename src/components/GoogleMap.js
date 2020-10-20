@@ -43,6 +43,7 @@ export class DisplayGoogleMap extends Component {
             parseFloat(this.props.location.split(',')[1])
           }
           target="_blank"
+          rel="noopener noreferrer"
         >
           <h3>Get Directions</h3>
         </a>

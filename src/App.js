@@ -8,13 +8,6 @@ import Details from './components/Details';
 import Footer from './components/Footer';
 
 function App() {
-  const googleScript = document.createElement('script');
-  googleScript.src =
-    'https://maps.googleapis.com/maps/api/js?key=' +
-    process.env.REACT_APP_GOOGLE_CLOUD_API_KEY +
-    '&libraries=places';
-  window.document.body.appendChild(googleScript);
-
   return (
     <BrowserRouter basename="/">
       <div className="App">
