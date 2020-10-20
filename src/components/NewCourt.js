@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import firebase from './Firestore';
 import { withRouter } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ class NewCourt extends React.Component {
       location: '',
       lights: '',
     };
-    this.googleMapRef = React.createRef();
+    this.googleMapRef = createRef();
   }
 
   componentDidMount() {
