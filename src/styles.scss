@@ -1,301 +1,300 @@
-$font: "Lato", sans-serif;
+$font: 'Lato', sans-serif;
 
-header{
-    margin-top: 50px;
-    h1{
-        font-size: 35px;
-        font-weight: bold;
-    }
+header {
+  margin-top: 50px;
+  h1 {
+    font-size: 35px;
+    font-weight: bold;
+  }
 }
 
-.court-container{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow: scroll;
-    height: 65vh;
-    align-items: center;
+.court-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: scroll;
+  height: 65vh;
+  align-items: center;
 }
 
-.court-object{
-    min-width: 75%;
-    min-height: 100px;
+.court-object {
+  min-width: 75%;
+  min-height: 100px;
+  border-radius: 10px;
+  width: 70%;
+  display: flex;
+  padding: 20px;
+  flex-direction: row;
+  img {
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
     border-radius: 10px;
-    width: 70%;
-    display: flex;
-    padding: 20px;
-    flex-direction: row;
-    img{
-        height: 100px;
-        width: 100px;
-        margin-right: 10px;
-        border-radius: 10px;
-    }
-    // margin-top: 40px;
+  }
+  // margin-top: 40px;
 }
 
-.court-object:hover{
-    background-color: #F4F4F4;
-    cursor: pointer;
+.court-object:hover {
+  background-color: #f4f4f4;
+  cursor: pointer;
 }
 
-.court-details{
-    display:flex;
-    flex-direction: row;
-    margin-top: auto;
-    // width: 150px;
-    h3{
-        font-weight: 100;
-        font-size: 12px;
-        margin-bottom: 0;
-    }
-    h3:nth-child(2){
-        margin-left: 10px;
-    }
+.court-details {
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+  // width: 150px;
+  h3 {
+    font-weight: 100;
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+  h3:nth-child(2) {
+    margin-left: 10px;
+  }
 }
 
-.court-name
-{
-    h2{
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-top: 5px;
-        width: 200px;
-    }
-    h2:hover{
-        overflow: visible;
-    }
+.court-name {
+  h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    width: 200px;
+  }
+  h2:hover {
+    overflow: visible;
+  }
 }
 
-.court-populated{
-    margin-top: 20px;
-    margin-left: 25px;
-    h3{
-        font-weight: 100;
-        font-size: 12px;
-        width: 100px;
-    }
-    h3:nth-child(1){
-        margin-top: 15px
-    }
-    float: right;
+.court-populated {
+  margin-top: 20px;
+  margin-left: 25px;
+  h3 {
+    font-weight: 100;
+    font-size: 12px;
+    width: 100px;
+  }
+  h3:nth-child(1) {
+    margin-top: 15px;
+  }
+  float: right;
 }
 
-.court-info{
-    margin-top: 20px;
+.court-info {
+  margin-top: 20px;
 }
 
-mark{
-    background-color: transparent;
-    color: red;
+mark {
+  background-color: transparent;
+  color: red;
 }
 
-.line{
-    width: 300px;
-    height: 12px;
-    border-bottom: 3px solid #FF5800;
-    position: relative;
-    left: 75px;
-    top: 35px;
-    z-index: 10;
+.line {
+  width: 300px;
+  height: 12px;
+  border-bottom: 3px solid #ff5800;
+  position: relative;
+  left: 75px;
+  top: 35px;
+  z-index: 10;
 }
 
 .dot {
-    height: 25px;
-    width: 25px;
-    background-color: #FF5800;
-    border-radius: 50%;
-    display: inline-block;
+  height: 25px;
+  width: 25px;
+  background-color: #ff5800;
+  border-radius: 50%;
+  display: inline-block;
 }
 
-footer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: absolute;
-    bottom: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-radius: 10px;
-    h3{
-        margin-left: 10px;
-        color: #707070;
-    }
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  h3 {
+    margin-left: 10px;
+    color: #707070;
+  }
 }
 
 #getDirection {
-    h3 {
-        font-weight: 100;
-        color: black;
-    }
+  h3 {
+    font-weight: 100;
+    color: black;
+  }
+  text-decoration: none;
+}
+
+footer:hover {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: scroll;
+  // align-items: center;
+}
+
+.courts {
+  width: 100%;
+  a {
     text-decoration: none;
-}
+    background-color: #ff5800;
+    color: white;
+    padding: 15px;
+    width: 200px;
+    position: relative;
+    top: 10px;
+    border-radius: 10px;
+    text-align: center;
+    display: block;
+    transform: translateX(50%);
+  }
 
-footer:hover{
-    background-color: #F4F4F4;
+  a:hover {
+    background-color: #ff9760;
     cursor: pointer;
+  }
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow: scroll;
-    // align-items: center;
+.new-court {
+  height: 65vh;
+  label {
+    margin-top: 5px;
+    font-family: $font;
+    font-size: 20px;
+    min-height: 30px;
+  }
+  input {
+    margin-top: 5px;
+    border-style: none;
+    border-bottom: 1px solid #ff5800;
+    font-size: 15px;
+  }
+  input[type='text'] {
+    width: 50%;
+  }
+  input[type='number'] {
+    width: 10%;
+  }
+  input[type='radio'] {
+    margin-right: 15px;
+  }
+  input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #f4f4f4;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+  }
+  input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #ff5800;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+  }
+
+  button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ff5800;
+    color: white;
+    border-style: none;
+    width: 30%;
+    margin-top: 20px;
+  }
 }
 
-.courts{
-    width: 100%;      
-    a{
-        text-decoration: none;
-        background-color: #FF5800;
-        color: white;
-        padding: 15px;
-        width: 200px;
-        position: relative;
-        top: 10px;
-        border-radius: 10px;
-        text-align: center;
-        display: block;
-        transform: translateX(50%);
-    }
-
-    a:hover{
-        background-color: #FF9760;
-        cursor: pointer;
-    }
-}
-
-.new-court{
-    height: 65vh;
-    label{
-        margin-top: 5px;
-        font-family: $font;
-        font-size: 20px;
-        min-height: 30px;
-    }
-    input{
-        margin-top: 5px;
-        border-style: none;
-        border-bottom: 1px solid #FF5800;
-        font-size: 15px;
-    }
-    input[type=text]{
-        width: 50%;
-    }
-    input[type=number]{
-        width: 10%;
-    }
-    input[type=radio]{
-        margin-right: 15px;
-    }
-    input[type=radio]:after {
-        width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        top: -2px;
-        left: -1px;
-        position: relative;
-        background-color: #F4F4F4;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid white;
-    }
-    input[type=radio]:checked:after {
-        width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        top: -2px;
-        left: -1px;
-        position: relative;
-        background-color: #FF5800;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid white;
-    }
-
-    button{
-        padding: 10px;
-        border-radius: 10px;
-        background-color: #FF5800;
-        color: white;
-        border-style: none;
-        width: 30%;
-        margin-top: 20px;
-    }
-}
-
-#google-map{
-    min-height: 300px;
-    min-width: 450px;
+#google-map {
+  min-height: 300px;
+  min-width: 450px;
 }
 
 .modal {
-    outline: none;
-    background: white;
-    font-size: 1.6rem;
-    width: 76rem;
-    max-width: 30%;
-    display: flex;
-    flex-direction: column;
-    z-index: 15;
-    // height: 50%;
-    transform: translateX(50%);
-    padding: 20px;
+  outline: none;
+  background: white;
+  font-size: 1.6rem;
+  width: 76rem;
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  z-index: 15;
+  // height: 50%;
+  transform: translateX(50%);
+  padding: 20px;
 }
 
-.wait-list{
-    margin-top: 15px;
-    label{
-        margin-top: 5px;
-        font-family: $font;
-        font-size: 20px;
-        min-height: 30px;
-    }
-    input{
-        margin-top: 5px;
-        border-style: none;
-        border-bottom: 1px solid #FF5800;
-        font-size: 15px;
-    }
-    button{
-        padding: 10px;
-        border-radius: 10px;
-        background-color: #FF5800;
-        color: white;
-        border-style: none;
-        width: 30%;
-        margin-top: 20px;
-    }
+.wait-list {
+  margin-top: 15px;
+  label {
+    margin-top: 5px;
+    font-family: $font;
+    font-size: 20px;
+    min-height: 30px;
+  }
+  input {
+    margin-top: 5px;
+    border-style: none;
+    border-bottom: 1px solid #ff5800;
+    font-size: 15px;
+  }
+  button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ff5800;
+    color: white;
+    border-style: none;
+    width: 30%;
+    margin-top: 20px;
+  }
 }
 
-.details{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow: scroll;
-    height: 65vh;
-    button{
-        margin: 10px;
-        padding: 10px;
-        border-radius: 10px;
-        background-color: #FF5800;
-        color: white;
-        border-style: none;
-        width: 30%;
-        margin-top: 20px;
-        min-height: 30px;
-    }
-    h1{
-        margin-bottom: 10px;
-    }
-    h3{
-        font-weight: 100;
-        font-size: 15px;
-        margin-bottom: 10px;
-        margin-top: 0;
-    }
+.details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: scroll;
+  height: 65vh;
+  button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ff5800;
+    color: white;
+    border-style: none;
+    width: 30%;
+    margin-top: 20px;
+    min-height: 30px;
+  }
+  h1 {
+    margin-bottom: 10px;
+  }
+  h3 {
+    font-weight: 100;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
 }
