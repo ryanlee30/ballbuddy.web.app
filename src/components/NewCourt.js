@@ -49,8 +49,6 @@ class NewCourt extends React.Component {
           });
         });
       });
-    } else {
-      window.alert('Please enable location services.');
     }
   }
 
