@@ -2,4 +2,4 @@
 
 Find basketball courts near you
 
-Deployed on: ballbuddy.web.app
+Deployed on: https://ballbuddy.web.app
